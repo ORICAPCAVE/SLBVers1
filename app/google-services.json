@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "910312547817",
+    "firebase_url": "https://slbvers1-default-rtdb.firebaseio.com",
+    "project_id": "slbvers1",
+    "storage_bucket": "slbvers1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910312547817:android:ab2bbc649f702af1b75778",
+        "android_client_info": {
+          "package_name": "com.slbvers1new.slbvers1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgxJmfihbmggjyrmE33vR_22qHCMduOpc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="SlugBug_rules">
+
+    BUGGY RULES
+\n\n
+    1. A game of bug is initiated by  the announcing of Bug or Buggy,
+       any one who wishes to play may, but is responsible for keeping
+       their own score.(soon in version 2, thanks to the Buggy app scores can be logged-
+       with picture proof of "buggy\'s".)
+\n\n
+    2. Buggy\'s are Volkswagen beetle cars that are spotted on the
+    road, or on TV, or in Movies. All model beetles are subject to the
+    game of buggy.
+\n\n
+    3. Car Lots with Buggy\'s are Exempt from  the Game.
+\n\n
+    4. 8 Bug\'s initiates a "Slug Bug". The slug bug score wins the round, all buggy scores
+    reset to zero. The slug bug score is tallied as a score in the winners
+    circle for a high score record.
+ </string>
+</resources>
