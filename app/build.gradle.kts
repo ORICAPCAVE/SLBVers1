@@ -10,11 +10,11 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.slbvers1new.slbvers1"
+        applicationId = "com.youcntbel.slbvers1"
         minSdk = 24
         targetSdk = 36
-        versionCode = 20
-        versionName = "3.1"
+        versionCode = 29
+        versionName = "4.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -72,7 +72,6 @@ dependencies {
 
     //implementation("com.google.firebase:firebase-auth:23.0.0")
     //implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
-    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.28")
     //implementation ("androidx.fragment:fragment:fragment_version")
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)

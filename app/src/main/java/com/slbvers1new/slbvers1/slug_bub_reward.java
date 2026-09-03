@@ -32,8 +32,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
+import android.widget.ImageView;
 import java.text.SimpleDateFormat;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -41,7 +44,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import pl.droidsonroids.gif.GifImageView;
+//import pl.droidsonroids.gif.GifImageView;
 // this is the class that runs the reward for a slugbug it
 // has a short Gif and sound byte.
 
@@ -49,7 +52,8 @@ public class slug_bub_reward extends AppCompatActivity {
     public static final String NEW_SLUG_BUG = "NewSlugBug";
 
 
-    private GifImageView slug_bug_reward;
+   // private GifImageView slug_bug_reward;
+   private ImageView slug_bug_reward;
     private Button Done;
     public MediaPlayer soundPlayer;
     private static DatabaseReference myRef;
@@ -63,6 +67,7 @@ public class slug_bub_reward extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.slug_bub_reward);
+
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         View root = findViewById(R.id.rewardRoot);
@@ -86,6 +91,14 @@ public class slug_bub_reward extends AppCompatActivity {
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
         slug_bug_reward = findViewById(R.id.slug_bug2_reward);
+        slug_bug_reward.post(() -> {
+
+            Drawable drawable = slug_bug_reward.getDrawable();
+
+            if (drawable instanceof Animatable) {
+                ((Animatable) drawable).start();
+            }
+        });
         soundPlayer = MediaPlayer.create(this.getBaseContext(), R.raw.slugbugreward);
         key = FirebaseDatabase.getInstance().getReference(mAuth.getUid()).getKey();
         myRef = FirebaseDatabase.getInstance().getReference(userID);
