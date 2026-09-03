@@ -14,32 +14,22 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class dedication_page_activity extends AppCompatActivity {
 
-
-    Button button5;
-
-    private FirebaseAuth auth;
-    private FirebaseAuth getAuth;
-    private FirebaseAuth firebaseAuth;
-
+    private Button button5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dedication_page);
-        final TextView textView2 = (TextView) findViewById(R.id.textView2);
+
+        TextView textView2 = findViewById(R.id.textView2);
         textView2.setText(R.string.Tribute_Annette);
 
-        button5 = (Button) findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-                startActivity(intent);
+        button5 = findViewById(R.id.button5);
 
-
-            }
-
+        button5.setOnClickListener(v -> {
+            Intent intent =
+                    new Intent(dedication_page_activity.this, MainActivity2.class);
+            startActivity(intent);
         });
-
-
-    }}
+    }
+}

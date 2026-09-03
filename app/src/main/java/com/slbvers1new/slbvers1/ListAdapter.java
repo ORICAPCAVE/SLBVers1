@@ -105,19 +105,19 @@ public class ListAdapter extends ArrayAdapter {
                                 .removeValue()
                                 .addOnSuccessListener(unused -> {
 
+                                    int index = scoreKeyList.indexOf(scoreKey);
+
+                                    if (index >= 0) {
+                                        scoreKeyList.remove(index);
+                                        scoreoneList.remove(index);
+                                    }
+
+                                    notifyDataSetChanged();
+
                                     Toast.makeText(
                                             mContext,
                                             "Score Deleted",
                                             Toast.LENGTH_SHORT
-                                    ).show();
-
-                                })
-                                .addOnFailureListener(e -> {
-
-                                    Toast.makeText(
-                                            mContext,
-                                            "Delete failed: " + e.getMessage(),
-                                            Toast.LENGTH_LONG
                                     ).show();
                                 });
                     }

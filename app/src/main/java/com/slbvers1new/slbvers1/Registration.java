@@ -31,7 +31,6 @@ public class Registration extends AppCompatActivity {
     Button home3;
     Button RegMe;
     private FirebaseAuth mAuth;
-    private FirebaseAuth auth;
     private FirebaseAuth firebaseAuth;
 
     private EditText UsernameBox, PasswordBox1, PasswordBox2;
@@ -51,13 +50,14 @@ public class Registration extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
 
-        RegMe = (Button) findViewById(R.id.SlugBug_ID);
-        RegMe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkTheCredentials();
+        RegMe = findViewById(R.id.SlugBug_ID);
+
+        RegMe.setOnClickListener(v -> {
+
+            if (checkTheCredentials()) {
                 registerClient();
             }
+
         });
 
         home3 = (Button) findViewById(R.id.home3);
@@ -76,19 +76,43 @@ public class Registration extends AppCompatActivity {
 
     }
 
-    private void checkTheCredentials() {
-        String username = UsernameBox.getText().toString();
+    private boolean checkTheCredentials() {
+
+        String username = UsernameBox.getText().toString().trim();
         String pass1 = PasswordBox1.getText().toString();
         String pass2 = PasswordBox2.getText().toString();
 
+        if (username.isEmpty()
+                || username.length() < 7
+                || !username.contains("@")) {
 
-        if (username.isEmpty() || username.length() < 7 || !username.contains("@")) {
-            showError(UsernameBox, "Your username is not valid!");
+            showError(
+                    UsernameBox,
+                    "Your username is not valid!"
+            );
+
+            return false;
+
         } else if (pass1.isEmpty() || pass1.length() < 10) {
-            showError(PasswordBox1, "Your Password is not Valid");
+
+            showError(
+                    PasswordBox1,
+                    "Your Password is not Valid"
+            );
+
+            return false;
+
         } else if (pass2.isEmpty() || !pass2.equals(pass1)) {
-            showError(PasswordBox2, "Your Passwords do not Match");
+
+            showError(
+                    PasswordBox2,
+                    "Your Passwords do not Match"
+            );
+
+            return false;
         }
+
+        return true;
     }
 
     private void showError(EditText UsernameBox, String s) {

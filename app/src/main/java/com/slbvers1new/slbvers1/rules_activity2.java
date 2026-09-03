@@ -13,25 +13,22 @@ import com.slbvers1new.slbvers1.rules_activity;
 
 public class rules_activity2 extends AppCompatActivity {
 
-
-    Button button7;
-
+    private Button button7;
 
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rules2);
-        final TextView Textview2 = (TextView)findViewById(R.id.Textview2);
+
+        TextView Textview2 = findViewById(R.id.Textview2);
         Textview2.setText(R.string.SlugBug_rulespg2);
 
-        button7 = (Button) findViewById(R.id.button7);
-        button7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent( getApplicationContext(), rules_activity.class);
-                startActivity(intent);
-            }
+        button7 = findViewById(R.id.button7);
+
+        button7.setOnClickListener(v -> {
+            Intent intent =
+                    new Intent(rules_activity2.this, rules_activity.class);
+            startActivity(intent);
         });
     }
-    }
+}
