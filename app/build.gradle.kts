@@ -13,8 +13,8 @@ android {
         applicationId = "com.youcntbel.slbvers1"
         minSdk = 24
         targetSdk = 36
-        versionCode = 29
-        versionName = "4.1"
+        versionCode = 30
+        versionName = "4.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
