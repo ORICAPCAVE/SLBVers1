@@ -128,21 +128,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void validate() {
-        String user = username.getText().toString();
+
+        String user = username.getText().toString().trim();
         String password1 = password_toggle.getText().toString();
-        String tag = null;
-        String logging = null;
+
         Info = findViewById(R.id.Info);
-        if (username == null || user.isEmpty()) {
-            // Toast message to the user.
-            Toast.makeText(this, "Please Enter a valid Email", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(LoginActivity.this, LoginActivity.class);
-            startActivity(intent);
-            }
-            else{
+
+        // Check for empty email
+        if (user.isEmpty()) {
+            username.setError("Please enter your email address");
+            username.requestFocus();
+            return;
+        }
+
+        // Check for empty password
+        if (password1.isEmpty()) {
+            password_toggle.setError("Please enter your password");
+            password_toggle.requestFocus();
+            return;
+        }
+
+        // Both fields contain information
         progressDialog.setMessage("Checking your credentials");
         progressDialog.show();
-
         mAuth.signInWithEmailAndPassword(user, password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -179,7 +187,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-}}
+}
 
 
 
